@@ -1,4 +1,4 @@
-# Minimalist CV [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBartoszJarocki%2Fcv)
+# Minimalist CV [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2abirpahlwan%2Fcv)
 
 Simple web app that renders minimalist CV with print-friendly layout.
 
@@ -17,7 +17,7 @@ Built with Next.js and shadcn/ui, deployed on Vercel.
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/BartoszJarocki/cv.git
+   git clone https://github.com/abirpahlwan/cv.git
    ```
 
 2. Move to the cloned directory
