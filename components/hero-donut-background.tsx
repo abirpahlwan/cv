@@ -625,7 +625,7 @@ export function HeroDonutBackground() {
   }, [])
 
   return (
-    <div ref={frameRef} aria-hidden="true" className="absolute inset-0 overflow-hidden rounded-[inherit]">
+    <div ref={frameRef} aria-hidden="true" className="absolute inset-0 overflow-hidden rounded-[inherit] pointer-events-none">
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_38%,rgba(0,0,0,0.08),transparent_34%)]" />
     </div>
