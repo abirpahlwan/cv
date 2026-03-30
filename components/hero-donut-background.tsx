@@ -461,7 +461,7 @@ export function HeroDonutBackground() {
       const drawCommands: DrawCommand[] = []
       const gapSamples = Math.ceil((fontSize * 2) / SAMPLE_STEP)
 
-      for (let rowIndex = 0; rowIndex < rows; rowIndex += 1) {
+      for (let rowIndex = 0; rowIndex < rows - 8; rowIndex += 1) {
         const cy = rowIndex * lineHeight + lineHeight * 0.5
         const row = bgGrid[rowIndex] ?? []
 
@@ -487,7 +487,7 @@ export function HeroDonutBackground() {
           const flowVal = rays + pulse
           const fontShift = Math.round((flowVal * 0.5 + 0.5) * (bgFonts.length - 1))
           const fontIndex = Math.max(0, Math.min(bgFonts.length - 1, cell.fontIndex + fontShift - Math.floor(bgFonts.length / 2)))
-          const opacity = cell.upper ? 0.11 : 0.07
+          const opacity = cell.upper ? 0.05 : 0.025
 
           drawCommands.push({
             char: cell.char,
