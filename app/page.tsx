@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 py-20 md:py-32">
+      <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center">
         <HeroDonutBackground />
-        <div className="space-y-8">
+        <div className="mx-auto max-w-5xl w-full px-4 sm:px-6 py-12 space-y-8">
           <div className="space-y-4">
             <div className="inline-block px-3 py-1 bg-neutral-100 rounded-full text-sm font-medium text-neutral-600">
               Welcome to my portfolio

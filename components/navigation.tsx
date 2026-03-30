@@ -19,7 +19,7 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-neutral-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <nav className="sticky top-0 z-50 border-b border-neutral-200/50 bg-white/30 backdrop-blur supports-[backdrop-filter]:bg-white/20">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="font-semibold text-lg tracking-tight text-neutral-900">
