@@ -1,16 +1,9 @@
-# Minimalist CV [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2abirpahlwan%2Fcv)
+# Maximalist Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2abirpahlwan%2Fcv)
 
 Simple web app that renders minimalist CV with print-friendly layout.
 
-Built with Next.js and shadcn/ui, deployed on Vercel.
+Built with Next.js, v0 and shadcn/ui, deployed on Vercel.
 
-# Features
-
-- Setup only takes a few minutes [single config file](./src/data/resume-data.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/ui, TailwindCss
-- Auto generated Layout
-- Responsive for different devices
-- Optimized for Next.js and Vercel
 
 # Getting Started Locally
 
@@ -37,28 +30,6 @@ Built with Next.js and shadcn/ui, deployed on Vercel.
    ```bash
    yarn dev
    ```
-
-5. Open the [Config file](./src/data/resume-data.tsx) and make changes
-
-# Run with Docker
-
-Build the container
-
-```
-docker compose build
-```
-
-Run the container
-
-```
-docker compose up -d
-```
-
-Stop the Container
-
-```
-docker compose down 
-```
 
 # License
 
