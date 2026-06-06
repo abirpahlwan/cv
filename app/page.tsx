@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Code2, Zap, Users } from 'lucide-react'
+import { ArrowRight, Code2, Zap, Users, CalendarClock } from 'lucide-react'
 import { HeroDonutBackground } from '@/components/hero-donut-background'
 
 export default function Home() {
@@ -238,6 +238,35 @@ export default function Home() {
               Contact Me
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Countdown CTA Section */}
+      <section className="bg-white py-20 md:py-32">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-8 md:p-12">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-neutral-900 rounded-full text-sm font-medium text-white">
+                  <CalendarClock className="h-4 w-4" />
+                  Upcoming Event
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 text-balance">
+                  Countdown to Smart Bangladesh
+                </h2>
+                <p className="text-lg text-neutral-600 text-pretty">
+                  Join the journey toward a digitally empowered nation. Track the countdown and explore the vision.
+                </p>
+              </div>
+              <Link
+                href="/events/smart-bangladesh"
+                className="inline-flex items-center justify-center px-6 py-3 bg-neutral-900 text-white font-medium rounded-lg hover:bg-neutral-800 transition-colors whitespace-nowrap"
+              >
+                View Countdown
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
