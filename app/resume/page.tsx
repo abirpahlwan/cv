@@ -21,6 +21,13 @@ interface Education {
   details?: string
 }
 
+interface Certification {
+  title: string
+  issuer: string
+  period: string
+  description?: string
+}
+
 const workExperience: WorkExperience[] = [
   {
     position: 'Software Engineer',
@@ -137,6 +144,27 @@ const education: Education[] = [
   }
 ]
 
+const certifications: Certification[] = [
+  {
+    title: 'Claude Code in Action',
+    issuer: 'Anthropic',
+    period: '2024',
+    description: 'Specialized training on Claude AI and advanced prompt engineering techniques for practical application development.'
+  },
+  {
+    title: 'Transform Business Workflows with Generative AI',
+    issuer: 'Microsoft',
+    period: '2024',
+    description: 'Comprehensive certification on leveraging generative AI to optimize and automate enterprise business processes.'
+  },
+  {
+    title: 'Google AI Professional Certificate',
+    issuer: 'Google Cloud',
+    period: '2024',
+    description: 'Professional-level certification covering machine learning, AI infrastructure, and deployment on Google Cloud Platform.'
+  }
+]
+
 const technologies = {
   'Programming Languages': ['JavaScript', 'Python', 'PHP', 'C#', 'Java', 'C++'],
   'Frontend': ['React', 'Next.js', 'Three.js', 'p5.js', 'HTML/CSS', 'Tailwind CSS'],
@@ -247,6 +275,42 @@ export default function Resume() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Courses & Certifications */}
+      <section className="bg-neutral-50 py-20 md:py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="space-y-12">
+            <h2 className="text-4xl font-bold text-neutral-900">
+              Courses & Certifications
+            </h2>
+
+            <div className="space-y-6">
+              {certifications.map((cert, index) => (
+                <div key={index} className="bg-white rounded-lg p-6 border border-neutral-200 hover:shadow-md transition-shadow">
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-bold text-neutral-900">
+                      {cert.title}
+                    </h3>
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                      <p className="text-neutral-600 font-medium">
+                        {cert.issuer}
+                      </p>
+                      <span className="text-sm text-neutral-600">
+                        {cert.period}
+                      </span>
+                    </div>
+                    {cert.description && (
+                      <p className="text-neutral-600 text-sm pt-1">
+                        {cert.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
