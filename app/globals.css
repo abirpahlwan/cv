@@ -143,6 +143,12 @@
   --shadow-x: var(--shadow-x);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

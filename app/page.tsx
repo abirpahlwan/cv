@@ -1,6 +1,9 @@
+'use client'
+
 import Link from 'next/link'
 import { ArrowRight, Code2, Zap, Users, CalendarClock } from 'lucide-react'
 import { HeroDonutBackground } from '@/components/hero-donut-background'
+import { MotionCard, Reveal, motion } from '@/components/motion/reveal'
 
 export default function Home() {
   return (
@@ -8,7 +11,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center">
         <HeroDonutBackground />
-        <div className="mx-auto max-w-5xl w-full px-4 sm:px-6 py-12 space-y-8">
+        <Reveal className="mx-auto max-w-5xl w-full px-4 sm:px-6 py-12">
+          <div className="space-y-8">
+          <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="space-y-4">
             <div className="inline-block px-3 py-1 bg-neutral-100 rounded-full text-sm font-medium text-neutral-600">
               Welcome to my portfolio
@@ -20,9 +25,10 @@ export default function Home() {
               Building innovative solutions with web, mobile, blockchain, AR/VR, and AI/ML technologies.
             </p>
           </div>
+          </motion.div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <motion.div className="flex flex-col sm:flex-row gap-4" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18, duration: 0.5 }}>
             <Link
               href="/portfolio"
               className="inline-flex items-center justify-center px-6 py-3 bg-neutral-900 text-white font-medium rounded-lg hover:bg-neutral-800 transition-colors"
@@ -36,7 +42,7 @@ export default function Home() {
             >
               Get In Touch
             </Link>
-          </div>
+          </motion.div>
 
           {/* Stats */}
           <div className="grid md:grid-cols-3 gap-6 pt-8">
@@ -53,7 +59,8 @@ export default function Home() {
               <p className="text-neutral-600">DAU on Ludo Club</p>
             </div>
           </div>
-        </div>
+          </div>
+        </Reveal>
       </section>
 
       {/* Featured Projects Section */}
@@ -72,7 +79,8 @@ export default function Home() {
             {/* Project Cards */}
             <div className="grid md:grid-cols-2 gap-6">
               {/* Ludo Club */}
-              <div className="bg-white rounded-lg p-6 border border-neutral-200 hover:shadow-lg transition-shadow">
+              <MotionCard className="bg-white rounded-lg p-6 border border-neutral-200">
+
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold text-neutral-900">Ludo Club</h3>
@@ -92,7 +100,7 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </MotionCard>
 
               {/* HR App */}
               <div className="bg-white rounded-lg p-6 border border-neutral-200 hover:shadow-lg transition-shadow">
