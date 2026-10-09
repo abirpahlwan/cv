@@ -61,11 +61,16 @@ export function Stagger({ children, className }: { children: ReactNode; classNam
 }
 
 export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <motion.div
       className={className}
-      variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      variants={{
+        hidden: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24, filter: 'blur(6px)' },
+        visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
+      }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>
