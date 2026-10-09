@@ -16,7 +16,7 @@ export function Reveal({ children, className, delay = 0, amount = 0.2 }: RevealP
   return (
     <motion.div
       className={className}
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount }}
       transition={{ duration: shouldReduceMotion ? 0 : 0.55, delay: shouldReduceMotion ? 0 : delay, ease: [0.22, 1, 0.36, 1] }}
@@ -47,7 +47,7 @@ export function Stagger({ children, className }: { children: ReactNode; classNam
   return (
     <motion.div
       className={className}
-      initial={shouldReduceMotion ? false : 'hidden'}
+      initial={false}
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
       variants={{
