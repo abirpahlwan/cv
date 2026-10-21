@@ -8,13 +8,13 @@ import { cn } from '@/lib/utils'
 
 function messageText(message: UIMessage) {
   return message.parts
-    .filter((part) => part.type === 'text')
+    .filter((part): part is typeof part & { text: string } => part.type === 'text' && 'text' in part)
     .map((part) => part.text)
     .join('')
 }
 
 export function PortfolioAssistant() {
-  const { messages, sendMessage, status, stop } = useChat()
+  const { messages, sendMessage, status, stop, error } = useChat()
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState('')
   const [listening, setListening] = useState(false)
@@ -90,6 +90,7 @@ export function PortfolioAssistant() {
             {messages.length === 0 && <div className="rounded-xl bg-neutral-50 p-4 text-sm text-neutral-600"><p className="font-medium text-neutral-900">Hi, I&apos;m here to help.</p><p className="mt-1">Ask about projects, skills, experience, or how to get in touch.</p><div className="mt-3 flex flex-wrap gap-2"><button onClick={() => setInput('What kind of projects has Pahlwan built?')} className="rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-xs hover:border-neutral-400">Projects</button><button onClick={() => setInput('What are Pahlwan&apos;s main skills?')} className="rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-xs hover:border-neutral-400">Skills</button></div></div>}
             {messages.map((message) => <div key={message.id} className={cn('flex', message.role === 'user' ? 'justify-end' : 'justify-start')}><div className={cn('max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed', message.role === 'user' ? 'rounded-br-sm bg-neutral-950 text-white' : 'rounded-bl-sm bg-neutral-100 text-neutral-800')}>{messageText(message)}</div></div>)}
             {(status === 'submitted' || status === 'streaming') && <div className="text-xs text-neutral-500">Thinking…</div>}
+            {error && <div role="alert" className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs leading-relaxed text-red-700">The assistant could not reply right now. The AI service may need billing verification or may be temporarily unavailable.</div>}
             <div ref={bottomRef} />
           </div>
           <div className="border-t border-neutral-200 p-3"><form onSubmit={submit} className="flex items-end gap-2"><textarea value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing && event.keyCode !== 229) { event.preventDefault(); submit(event) } }} placeholder="Ask a question…" rows={1} aria-label="Message assistant" className="min-h-10 flex-1 resize-none rounded-xl border border-neutral-200 px-3 py-2.5 text-sm outline-none focus:border-neutral-500" /><button type="button" onClick={toggleVoiceInput} aria-label={listening ? 'Stop listening' : 'Use voice input'} className={cn('rounded-xl p-2.5 transition', listening ? 'bg-red-100 text-red-700' : 'text-neutral-500 hover:bg-neutral-100')}><Mic className="size-4" /></button><button type="submit" disabled={!input.trim() || status === 'streaming' || status === 'submitted'} aria-label="Send message" className="rounded-xl bg-neutral-950 p-2.5 text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-40"><Send className="size-4" /></button></form><div className="mt-2 flex items-center justify-between"><p className="text-[10px] text-neutral-400">Free-tier AI for now · voice runs in your browser</p>{status === 'streaming' ? <button onClick={stop} className="inline-flex items-center gap-1 text-[11px] text-neutral-500 hover:text-neutral-900"><Square className="size-3" /> Stop</button> : <button onClick={speakLastReply} disabled={!messages.some((message) => message.role === 'assistant')} className={cn('inline-flex items-center gap-1 text-[11px] text-neutral-500 hover:text-neutral-900 disabled:opacity-30', speaking && 'text-neutral-900')}><Volume2 className="size-3" /> {speaking ? 'Stop voice' : 'Read reply'}</button>}</div></div>
