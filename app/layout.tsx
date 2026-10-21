@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
+import { PortfolioAssistant } from '@/components/portfolio-assistant'
 import './globals.css'
 
 import { Geist_Mono, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
@@ -47,6 +48,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <PortfolioAssistant />
         <Analytics />
       </body>
     </html>
